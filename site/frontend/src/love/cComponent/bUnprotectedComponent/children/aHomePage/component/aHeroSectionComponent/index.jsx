@@ -12,27 +12,27 @@ const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
   return (
     <React.Fragment>
       {/* Hero Section */}
-      <section className="text-gray-400 bg-gray-900 body-font">
+      <section>
         <div className="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
           <img className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src={Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.image?.url} />
           <div className="text-center lg:w-2/3 w-full">
-            <Badge>{Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.tag}</Badge>
-            <h1 className="title-font sm:text-4xl text-3xl mb-2 mt-2 font-medium text-white">
+            <Badge variant="custom" >{Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.tag}</Badge>
+            <h1 className="title-font sm:text-4xl text-3xl mb-2 mt-2 font-medium">
               {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.title}
             </h1>
-            <h2 className="text-lg text-white font-medium title-font mb-4">
+            <h2 className="text-lg font-medium title-font mb-4">
               {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.subtitle}
             </h2>
             <p className="leading-relaxed mb-4">
               {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.description} {" "}
             </p>
             <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-              <Button asChild>
+              <Button asChild variant="custom" >
                 <Link to="/login">
                   <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Login with Email
                 </Link>
               </Button>
-              <Button asChild>
+              <Button asChild variant="custom" >
                 <Link to="/login">
                   <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Login with Email
                 </Link>

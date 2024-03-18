@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 // Component
-import HeaderComponent from './component/aHeaderComponent';
-import FooterComponent from './component/bFooterComponent';
+const HeaderComponent = React.lazy(() => import('./component/aHeaderComponent'));
+const FooterComponent = React.lazy(() => import('./component/bFooterComponent'));
 import brand from '@/love/dFunction/gBrand';
 
 
@@ -10,9 +10,13 @@ const GlobalComponent = ({ Redux, LogoutAPICall, children }) => {
   // JSX
   return (
     <React.Fragment>
-      <HeaderComponent Redux={Redux} />
+      <Suspense fallback={null}>
+        <HeaderComponent Redux={Redux} LogoutAPICall={LogoutAPICall} />
+      </Suspense>
       { children }
-      <FooterComponent Redux={Redux} />
+      <Suspense fallback={null}>
+        <FooterComponent Redux={Redux} />
+      </Suspense>
     </React.Fragment>
   )
 }
