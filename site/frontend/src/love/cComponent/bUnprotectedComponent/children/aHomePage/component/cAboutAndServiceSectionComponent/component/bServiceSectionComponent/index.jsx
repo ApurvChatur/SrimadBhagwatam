@@ -18,9 +18,9 @@ function ServiceSectionComponent({ Redux }) {
               return (
                 <React.Fragment key={index} >
                   <div className="p-4 md:w-1/2">
-                    <div className="flex rounded-lg h-full bg-[#00203F] dark:bg-[#ADEFD1] text-[#ADEFD1] dark:text-[#00203F] bg-opacity-60 p-8 flex-col">
+                    <div className="flex rounded-lg h-full bg-[#990011] dark:bg-[#FCF6F5] text-[#FCF6F5] dark:text-[#990011] bg-opacity-60 p-8 flex-col">
                       <div className="flex items-center mb-3">
-                        <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-[#ADEFD1] dark:bg-[#00203F] text-[#00203F] dark:text-[#ADEFD1] flex-shrink-0">
+                        <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] flex-shrink-0">
                           <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5" viewBox="0 0 24 24">
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
                           </svg>
