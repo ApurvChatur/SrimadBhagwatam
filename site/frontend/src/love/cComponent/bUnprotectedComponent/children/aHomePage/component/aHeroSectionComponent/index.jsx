@@ -5,7 +5,16 @@ import brand from '@/love/dFunction/gBrand';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { EnvelopeOpenIcon, LockOpen2Icon, InstagramLogoIcon, TwitterLogoIcon, LinkedInLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons"
+import { 
+  EnvelopeOpenIcon,
+  Link2Icon,
+  InstagramLogoIcon,
+  TwitterLogoIcon,
+  LinkedInLogoIcon,
+  GitHubLogoIcon,
+  PersonIcon,
+  UpdateIcon
+} from "@radix-ui/react-icons"
 
 
 const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
@@ -27,57 +36,48 @@ const HeroSectionComponent = ({ Redux, ReduxUltimate }) => {
               {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.description} {" "}
             </p>
             <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-              <Button asChild variant="custom" >
-                <Link to="/login">
-                  <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Login with Email
-                </Link>
-              </Button>
-              <Button asChild variant="custom" >
-                <Link to="/login">
-                  <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Login with Email
-                </Link>
-              </Button>
+              {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.webLinks?.map((each, index) => (
+                <Button asChild variant="custom" key={index} >
+                  <Link to={each?.url} target="_blank" rel="noreferrer" >
+                    <UpdateIcon className="mr-2 h-4 w-4" /> {each?.title}
+                  </Link>
+                </Button>
+              ))}
+
+              {ReduxUltimate.state.RequiredObject?.Loading ? null :
+                ReduxUltimate.state.ReceivedObject?.ProfileRetrieve ? (
+                  <Button asChild variant="custom" >
+                    <Link to={FinalRouteName.ContentRoute.TopbarRoute.ProfileRoute}>
+                      <PersonIcon className="mr-2 h-4 w-4" /> Check Your Profile
+                    </Link>
+                  </Button>
+                ) : (
+                  <Button asChild variant="custom" >
+                    <Link to={FinalRouteName.AuthRoute.LoginRoute}>
+                      <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Sign in with Email
+                    </Link>
+                  </Button>
+                )
+              }
             </div>
             <p className="mt-2 mb-2 lg:mt-4 text-center font-medium">
               Follow us on:
             </p>
             <div className="flex justify-center space-x-2 sm:flex sm:space-y-0 sm:space-x-4">
-              <Button variant="ghost" size="icon" asChild >
-                <Link 
-                  to="https://github.com/shadcn-ui/ui/blob/main/apps/www/components/site-header.tsx"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <InstagramLogoIcon className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="ghost" size="icon" asChild >
-                <Link 
-                  to="https://github.com/shadcn-ui/ui/blob/main/apps/www/components/site-header.tsx"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <TwitterLogoIcon className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="ghost" size="icon" asChild >
-                <Link 
-                  to="https://github.com/shadcn-ui/ui/blob/main/apps/www/components/site-header.tsx"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <LinkedInLogoIcon className="h-4 w-4" />
-                </Link>
-              </Button>
-              <Button variant="ghost" size="icon" asChild >
-                <Link 
-                  to="https://github.com/shadcn-ui/ui/blob/main/apps/www/components/site-header.tsx"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <GitHubLogoIcon className="h-4 w-4" />
-                </Link>
-              </Button>
+              {Redux.state.ReceivedObject?.Retrieve?.HeroRetrieve?.socialLinks?.map((each, index) => (
+                <Button key={index} variant="ghost" size="icon" asChild >
+                  <Link to={each?.url} target="_blank" rel="noreferrer" >
+                    {
+                      each?.title.toLowerCase() === "instagram" ? <InstagramLogoIcon className="h-4 w-4" /> :
+                      each?.title.toLowerCase() === "twitter" ? <TwitterLogoIcon className="h-4 w-4" /> :
+                      each?.title.toLowerCase() === "threads" ? <Link2Icon className="h-4 w-4" /> :
+                      each?.title.toLowerCase() === "linkedin" ? <LinkedInLogoIcon className="h-4 w-4" /> :
+                      each?.title.toLowerCase() === "github" ? <GitHubLogoIcon className="h-4 w-4" /> :
+                      <Link2Icon className="h-4 w-4" />
+                    }
+                  </Link>
+                </Button>
+              ))}
             </div>
           </div>
         </div>
