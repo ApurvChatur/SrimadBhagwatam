@@ -7,7 +7,7 @@ import FinalRouteName from "@/love/gRoute/FinalRouteName";
 
 const APIs = {
   // ResetPassword API
-  ResetPasswordAPI: (Redux, navigate, ReduxUltimate, token) => {
+  ResetPasswordAPI: (Redux, navigate, ReduxUltimate, token, toast) => {
     loading(ReduxUltimate, true)
 
     API.GlobalAPI.ProtectedAPI.AuthenticatedAPI.ResetPasswordAPI({
@@ -26,7 +26,9 @@ const APIs = {
           ...ReduxUltimate.state.ExtraObject,
           Halchal: !ReduxUltimate.state.ExtraObject?.Halchal || true
         }})
-        toast.success(serverResponse.message);
+        toast({
+          description: serverResponse.message,
+        });
         clearFormObject(Redux)
         navigate(FinalRouteName.GlobalRoute.HomeRoute)
       }
@@ -34,7 +36,9 @@ const APIs = {
     .catch(error => {
       // console.log(error.response.data);
       const serverResponse = error.response.data
-      toast.error(serverResponse.message);
+      toast({
+        description: serverResponse.message,
+      });
     })
     .finally(() => loading(ReduxUltimate, false) );
   },

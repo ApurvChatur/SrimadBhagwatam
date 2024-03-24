@@ -7,7 +7,7 @@ import FinalRouteName from "@/love/gRoute/FinalRouteName";
 
 const APIs = {
   // ForgotPassword API
-  ForgotPasswordAPI: (Redux, navigate, ReduxUltimate) => {
+  ForgotPasswordAPI: (Redux, navigate, ReduxUltimate, toast) => {
       loading(ReduxUltimate, true)
 
       API.GlobalAPI.ProtectedAPI.AuthenticatedAPI.ForgotPasswordAPI({
@@ -20,7 +20,9 @@ const APIs = {
       const serverResponse = response.data;
 
       if (serverResponse.success === true) {
-        toast.success(serverResponse.message);
+        toast({
+          description: serverResponse.message,
+        });
         clearFormObject(Redux)
         navigate(`${FinalRouteName.AuthRoute.ResetPasswordRoute}/${serverResponse.token}`)
       }
@@ -28,7 +30,9 @@ const APIs = {
     .catch(error => {
       // console.log(error.response.data);
       const serverResponse = error.response.data
-      toast.error(serverResponse.message);
+      toast({
+        description: serverResponse.message,
+      });
     })
     .finally(() => loading(ReduxUltimate, false) );
   },

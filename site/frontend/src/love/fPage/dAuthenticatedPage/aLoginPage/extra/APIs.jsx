@@ -7,7 +7,7 @@ import FinalRouteName from "@/love/gRoute/FinalRouteName";
 
 const APIs = {
   // Login API
-  LoginAPI: (Redux, navigate, ReduxUltimate) => {
+  LoginAPI: (Redux, navigate, ReduxUltimate, toast) => {
     loading(ReduxUltimate, true)
 
     API.GlobalAPI.ProtectedAPI.AuthenticatedAPI.LoginAPI({
@@ -25,7 +25,9 @@ const APIs = {
           ...ReduxUltimate.state.ExtraObject,
           Halchal: !ReduxUltimate.state.ExtraObject?.Halchal || true
         }})
-        toast.success(serverResponse.message);
+        toast({
+          description: serverResponse.message,
+        });
         clearFormObject(Redux)
         navigate(FinalRouteName.GlobalRoute.HomeRoute)
       }
@@ -33,7 +35,9 @@ const APIs = {
     .catch(error => {
       // console.log(error.response.data);
       const serverResponse = error.response.data
-      toast.error(serverResponse.message);
+      toast({
+        description: serverResponse.message,
+      });
     })
     .finally(() => loading(ReduxUltimate, false) );
   },

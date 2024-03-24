@@ -16,10 +16,12 @@ import submitFormObject from '@/love/dFunction/cSubmitFormObject';
 
 // Conponent
 import AuthFormComponent from '@/love/cComponent/dAuthenticatedComponent/children/aAuthFormComponent';
+import { useToast } from '@/components/ui/use-toast';
 
 
 const ResetPasswordPage = ({ ReduxUltimate }) => {
  	// Variables
+	const { toast } = useToast()
 	const navigate = useNavigate()
 	const {token} = useParams()
 
@@ -32,7 +34,7 @@ const ResetPasswordPage = ({ ReduxUltimate }) => {
 
 	// API Calls
 	const APICalls = {
-		ResetPasswordAPI: () => APIs.ResetPasswordAPI(Redux, navigate, ReduxUltimate, token)
+		ResetPasswordAPI: () => APIs.ResetPasswordAPI(Redux, navigate, ReduxUltimate, token, toast)
 	}	
 
   // All Render

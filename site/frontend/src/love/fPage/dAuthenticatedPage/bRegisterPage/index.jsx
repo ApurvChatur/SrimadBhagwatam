@@ -16,10 +16,12 @@ import submitFormObject from '@/love/dFunction/cSubmitFormObject';
 
 // Conponent
 import AuthFormComponent from '@/love/cComponent/dAuthenticatedComponent/children/aAuthFormComponent';
+import { useToast } from '@/components/ui/use-toast';
 
 
 const RegisterPage = ({ ReduxUltimate }) => {
 	// Variables
+	const { toast } = useToast()
 	const navigate = useNavigate()
 
   // Redux
@@ -31,7 +33,7 @@ const RegisterPage = ({ ReduxUltimate }) => {
 
 	// API Calls
 	const APICalls = {
-		RegisterAPIall: () => APIs.RegisterAPI(Redux, navigate, ReduxUltimate)
+		RegisterAPIall: () => APIs.RegisterAPI(Redux, navigate, ReduxUltimate, toast)
 	}		
 
   // All Render
