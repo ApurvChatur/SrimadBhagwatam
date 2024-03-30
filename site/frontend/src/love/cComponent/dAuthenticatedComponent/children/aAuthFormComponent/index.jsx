@@ -4,6 +4,12 @@ import {
   DoubleArrowRightIcon,
 } from "@radix-ui/react-icons"
 import { Button } from '@/components/ui/button';
+import { RocketIcon } from "@radix-ui/react-icons"
+import {
+  Alert,
+  AlertDescription,
+  AlertTitle,
+} from "@/components/ui/alert"
 
 
 const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
@@ -14,6 +20,19 @@ const AuthFormComponent = ({ Data, Redux, ReduxUltimate }) => {
           <div className="flex flex-col text-center w-full mb-12">
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4">{Data.title}</h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify.</p>
+          </div>
+
+          <div className="lg:w-1/2 md:w-2/3 mx-auto mb-4">
+            <Alert variant="custom" >
+              <RocketIcon className="h-4 w-4" />
+              <AlertTitle>Readymade User!</AlertTitle>
+              <AlertDescription>
+                <p><b>Email:</b> shraddha.kapoor@srimadbhagwatam.com</p> 
+                <p><b>Password:</b> Shraddha@123</p>
+                <p><b>Role:</b> Super Admin</p>
+                
+              </AlertDescription>
+            </Alert>
           </div>
 
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
