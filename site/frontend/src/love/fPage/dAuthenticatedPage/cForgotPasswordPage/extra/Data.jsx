@@ -7,7 +7,11 @@ import validateFormObject from "@/love/dFunction/bValidateFormObject"
 const Data = (Redux) => {
   return (
     {
-      title: "Forgot Password",
+      title: "😲 Forgot Password 😲",
+      subtitle: `Oops, Don't worry! Enter your email below and hit the send link. 
+        We'll redirect you to a URL where you can reset it back. 
+        😊 Don't Forget Again!
+      `,
       inputs: [
         {
           label: "Email",

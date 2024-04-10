@@ -7,7 +7,12 @@ import validateFormObject from "@/love/dFunction/bValidateFormObject"
 const Data = (Redux) => {
   return (
     {
-      title: "Register",
+      title: "🚀 Sign Up 🚀",
+      subtitle: `Enter the required details to create an account. 
+        Registered users will be assigned the role of 'Viewer'. 
+        This role has access to read the information in Administration. 
+        😊 Don't Hesitate, Go Ahead!
+      `,
       inputs: [
         {
           label: "First Name",

@@ -7,7 +7,11 @@ import validateFormObject from "@/love/dFunction/bValidateFormObject"
 const Data = (Redux) => {
   return (
     {
-      title: "Login",
+      title: "✨ Sign In ✨",
+      subtitle: `Enter your credentials below to access your account. 
+        You don't need to log in again when you visit the Administration. 
+        You'll stay signed there as well. 😊 Happy Journey!
+      `,
       inputs: [
         {
           label: "Email",

@@ -7,7 +7,11 @@ import validateFormObject from "@/love/dFunction/bValidateFormObject"
 const Data = (Redux) => {
   return (
     {
-      title: "Reset Password",
+      title: "🎠 Reset Password 🎠",
+      subtitle: `Great! Now enter your new password and confirm password. 
+        Further we'll redirect you to the homepage with successful login. 
+        😊 Don't Forget Again!
+      `,
       inputs: [
         {
           label: "New Password",

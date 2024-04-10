@@ -17,9 +17,9 @@ const APIs = {
         eEmail: Redux.state.FormObject.FormValue.email,
         ePassword: Redux.state.FormObject.FormValue.password,
 
-        aTitle: `This is ${Redux.state.FormObject.FormValue.firstName}`,
+        aTitle: `${Redux.state.FormObject.FormValue.firstName} ${Redux.state.FormObject.FormValue.lastName}`,
         aSubtitle: "Hi there I am using Beehive",
-        aDescription: "This is some detailed description",
+        aDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae arcu vestibulum, fringilla diam quis, tincidunt nunc. Mauris faucibus commodo nibh et euismod. Aenean ultricies turpis sit amet venenatis elementum. Aliquam massa nisi, pretium vel nisi ac, vehicula pharetra justo.`,
         aStatus: true,
 
         cRole: '660fd98c4ccdb799e59cb56f'
