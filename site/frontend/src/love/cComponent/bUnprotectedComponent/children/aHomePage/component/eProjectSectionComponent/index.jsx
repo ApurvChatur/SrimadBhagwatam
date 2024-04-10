@@ -21,7 +21,7 @@ function ProjectSectionComponent({ Redux }) {
           </div>          
 
           <div className="flex mx-auto mb-10 justify-center">
-            <ScrollArea className="w-96 lg:w-2/3 whitespace-nowrap rounded-md">
+            <ScrollArea className="w-80 lg:w-2/3 whitespace-nowrap rounded-md">
               {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
                 <a 
                   key={index}
@@ -102,7 +102,7 @@ function ProjectSectionComponent({ Redux }) {
         </div>
       </section>
 
-      <Separator/>
+      {/* <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" /> */}
     </React.Fragment>
   );
 }

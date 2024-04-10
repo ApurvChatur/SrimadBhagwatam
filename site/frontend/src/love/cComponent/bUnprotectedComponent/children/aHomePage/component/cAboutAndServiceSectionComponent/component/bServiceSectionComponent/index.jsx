@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import React from "react";
+import parse from 'html-react-parser';
 
 
 function ServiceSectionComponent({ Redux }) {
@@ -28,12 +29,7 @@ function ServiceSectionComponent({ Redux }) {
                         <h2 className="text-lg title-font font-medium">{each?.title}</h2>
                       </div>
                       <div className="flex-grow">
-                        <p className="leading-relaxed text-base">{each?.description}</p>
-                        <a className="mt-3 inline-flex items-center">Learn More
-                          <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
-                            <path d="M5 12h14M12 5l7 7-7 7"></path>
-                          </svg>
-                        </a>
+                        <div className="leading-relaxed text-base">{parse(each?.description || "")}</div>
                       </div>
                     </div>
                   </div>
@@ -44,7 +40,7 @@ function ServiceSectionComponent({ Redux }) {
         </div>
       </section>
 
-      <Separator/>
+      <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
     </React.Fragment>
   );
 }

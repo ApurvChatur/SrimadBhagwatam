@@ -17,10 +17,36 @@ function CounterSectionComponent({ Redux }) {
                 <React.Fragment key={index}>
                   <div className="p-4 md:w-1/3 sm:w-1/2 w-full">
                     <div className="bg-[#990011] dark:bg-[#FCF6F5] text-[#FCF6F5] dark:text-[#990011] bg-opacity-60 px-4 py-6 rounded-lg">
-                      <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-12 h-12 mb-3 inline-block" viewBox="0 0 24 24">
-                        <path d="M8 17l4 4 4-4m-4-5v9"></path>
-                        <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
-                      </svg>
+                      {
+                        each.title === "Frontend Application Deployed" ? (
+                          <div className="w-12 h-12 mb-3 inline-flex items-center justify-center rounded-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] flex-shrink-0">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-8 h-8" viewBox="0 0 24 24">
+                              <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"></path>
+                            </svg>
+                          </div>
+                        ) : 
+                        each.title === "Backend Applications Established" ? (
+                          <div className="w-12 h-12 mb-3 inline-flex items-center justify-center rounded-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] flex-shrink-0">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-8 h-8" viewBox="0 0 24 24">
+                              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                            </svg>
+                          </div>
+                        ) :
+                        each.title === "Admin Applications Published" ? (
+                          <div className="w-12 h-12 mb-3 inline-flex items-center justify-center rounded-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] flex-shrink-0">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-8 h-8" viewBox="0 0 24 24">
+                              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                          </div>
+                        ) : (
+                          <div className="w-12 h-12 mb-3 inline-flex items-center justify-center rounded-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] flex-shrink-0">
+                            <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-8 h-8" viewBox="0 0 24 24">
+                              <path d="M8 17l4 4 4-4m-4-5v9"></path>
+                              <path d="M20.88 18.09A5 5 0 0018 9h-1.26A8 8 0 103 16.29"></path>
+                            </svg>
+                          </div>
+                        )
+                      }
                       <h2 className="title-font font-medium text-3xl">{each.subtitle}</h2>
                       <p className="leading-relaxed font-medium mb-2">{each.title}</p>
                       <p className="leading-relaxed text-base">{each.description}</p>
@@ -33,7 +59,7 @@ function CounterSectionComponent({ Redux }) {
         </div>
       </section>
 
-      <Separator />
+      <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
     </React.Fragment>
   );
 }

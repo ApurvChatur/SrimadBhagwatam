@@ -1,8 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import React, { useState } from "react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { Link } from "react-router-dom";
+import { GitHubLogoIcon } from "@radix-ui/react-icons"
 
 
 function BranchSectionComponent({ Redux }) {
@@ -21,7 +21,7 @@ function BranchSectionComponent({ Redux }) {
           </div>          
 
           <div className="flex mx-auto justify-center mb-10">
-            <ScrollArea className="w-96 lg:w-2/3 whitespace-nowrap rounded-md">
+            <ScrollArea className="w-80 lg:w-2/3 whitespace-nowrap rounded-md">
               {Redux.state.ReceivedObject?.Retrieve?.BranchRetrieve?.subBranches?.map((each, index) => (
                 <a 
                   key={index}
@@ -102,7 +102,7 @@ function BranchSectionComponent({ Redux }) {
         </div>
       </section>
 
-      <Separator/>
+      <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
     </React.Fragment>
   );
 }

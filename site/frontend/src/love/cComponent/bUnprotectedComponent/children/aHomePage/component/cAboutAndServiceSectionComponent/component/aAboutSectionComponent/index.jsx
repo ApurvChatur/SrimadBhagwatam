@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import React from "react";
+import parse from 'html-react-parser';
 
 function AboutSectionComponent({ Redux }) {
   return (
@@ -21,9 +22,9 @@ function AboutSectionComponent({ Redux }) {
                 <h2 className="title-font text-2xl font-medium mt-6 mb-3">
                   {Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.actually?.title} 
                 </h2>
-                <p className="leading-relaxed text-base">
-                  {Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.actually?.description}
-                </p>
+                <div className="leading-relaxed text-base text-left">
+                  {parse(Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.actually?.description || "")}
+                </div>
               </div>
             </div>
             <div className="p-4 md:w-1/2">
@@ -34,16 +35,16 @@ function AboutSectionComponent({ Redux }) {
                 <h2 className="title-font text-2xl font-medium mt-6 mb-3">
                   {Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.comparatively?.title} 
                 </h2>
-                <p className="leading-relaxed text-base">
-                  {Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.comparatively?.description}
-                </p>
+                <div className="leading-relaxed text-base text-left">
+                  {parse(Redux.state.ReceivedObject?.Retrieve?.AboutRetrieve?.comparatively?.description || "")}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <Separator />
+      <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
     </React.Fragment>
   );
 }
