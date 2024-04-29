@@ -7,17 +7,20 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { HelmetProvider } from 'react-helmet-async';
 import Store from "@/love/bRedux/Store";
 import { BrowserRouter } from 'react-router-dom'
+import { SocketProvider } from "@/love/iSocket/socket";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <HelmetProvider>
       <Provider store={Store}>
-        <BrowserRouter>
-          <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" >
-            <App />
-          </ThemeProvider>
-        </BrowserRouter>
+        <SocketProvider>
+          <BrowserRouter>
+            <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme" >
+              <App />
+            </ThemeProvider>
+          </BrowserRouter>
+        </SocketProvider>
       </Provider>
     </HelmetProvider>
   </React.StrictMode>,

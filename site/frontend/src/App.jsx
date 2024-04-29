@@ -18,6 +18,7 @@ import SidebarLayout from "@/love/eLayout/gSidebarLayout";
 
 // // Unprotected Page
 const HomePage = React.lazy(() => import('@/love/fPage/bUnprotectedPage/aHomePage'));
+const ProjectPage = React.lazy(() => import('@/love/fPage/bUnprotectedPage/bProjectPage'));
 const AboutPage = React.lazy(() => import('@/love/fPage/bUnprotectedPage/bAboutPage'));
 const ContactPage = React.lazy(() => import('@/love/fPage/bUnprotectedPage/cContactpage'));
 
@@ -62,6 +63,7 @@ function App() {
           <Route element={<GlobalLayout ReduxUltimate={Redux} />} >
             <Route element={<UnprotectedLayout ReduxUltimate={Redux} />} >
               <Route path={RouteName.GlobalRoute.HomeRoute} element={<HomePage ReduxUltimate={Redux} />} />
+              <Route path={`${RouteName.GlobalRoute.ProjectRoute}/:id`} element={<ProjectPage ReduxUltimate={Redux} />} />
               <Route path={RouteName.GlobalRoute.AboutRoute} element={<AboutPage ReduxUltimate={Redux} />} />
               <Route path={RouteName.GlobalRoute.ContactRoute} element={<ContactPage ReduxUltimate={Redux} />} />
             </Route>

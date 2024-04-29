@@ -89,6 +89,7 @@ const APIs = {
                   description: each?.aDescription,
                   projects: each?.cProjects?.map(each1 => {
                     return {
+                      id: each1?._id,
                       image: each1?.aImage,
                       title: each1?.aTitle,
                       subtitle: each1?.aSubtitle,

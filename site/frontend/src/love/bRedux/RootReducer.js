@@ -11,6 +11,7 @@ import SidebarLayoutState from '../eLayout/gSidebarLayout/extra/State';
 
 // Page
 import HomePageState from '../fPage/bUnprotectedPage/aHomePage/extra/State';
+import ProjectPageState from '../fPage/bUnprotectedPage/bProjectPage/extra/State';
 import AboutPageState from '../fPage/bUnprotectedPage/bAboutPage/extra/State';
 import ContactPageState from '../fPage/bUnprotectedPage/cContactpage/extra/State';
 
@@ -37,6 +38,7 @@ const RootReducer = combineReducers({
 	
 	// Page
 	HomePageState,
+	ProjectPageState,
 	AboutPageState,
 	ContactPageState,
 

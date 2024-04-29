@@ -3,6 +3,7 @@ import RouteName from "./RouteName";
 const FinalRouteName = {
 	GlobalRoute: {
 		HomeRoute: `/${RouteName.GlobalRoute.HomeRoute}`,
+		ProjectRoute: `/${RouteName.GlobalRoute.ProjectRoute}`,
 		AboutRoute: `/${RouteName.GlobalRoute.AboutRoute}`,
 		ContactRoute: `/${RouteName.GlobalRoute.ContactRoute}`,
 	},

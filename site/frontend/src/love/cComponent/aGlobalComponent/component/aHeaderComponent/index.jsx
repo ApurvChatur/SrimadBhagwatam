@@ -14,6 +14,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 import DesktopNav from './components/aDesktopNav';
 import Setting from './components/cSetting';
 import MobileNav from './components/bMobileNav';
+import Notification from './components/dNotification';
 
 
 function getInitials(firstName, lastName) {
@@ -40,19 +41,22 @@ function HeaderComponent({ Redux, LogoutAPICall }) {
             <nav className="flex items-center space-x-2">
               {Redux.state.RequiredObject?.Loading ? null :
                 Redux.state.ReceivedObject?.ProfileRetrieve ? (
-                  <div className="flex items-center space-x-2 mr-2">
-                    <Avatar>
-                      <AvatarImage src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url} />
-                      <AvatarFallback>{getInitials(
-                        Redux.state.ReceivedObject?.ProfileRetrieve?.eFirstName, 
-                        Redux.state.ReceivedObject?.ProfileRetrieve?.eLastName
-                      )}</AvatarFallback>
-                    </Avatar>
-                    <div className='hidden sm:block' >
-                      <p className="text-sm font-medium leading-none">{`${Redux.state.ReceivedObject?.ProfileRetrieve?.eFirstName} ${Redux.state.ReceivedObject?.ProfileRetrieve?.eLastName}`}</p>
-                      <p className="text-sm text-muted-foreground">{Redux.state.ReceivedObject?.ProfileRetrieve?.cRole?.aTitle}</p>
+                  <React.Fragment>
+                    <div className="flex items-center space-x-2 mr-2">
+                      <Avatar>
+                        <AvatarImage src={Redux.state.ReceivedObject?.ProfileRetrieve?.eImage?.url} />
+                        <AvatarFallback>{getInitials(
+                          Redux.state.ReceivedObject?.ProfileRetrieve?.eFirstName, 
+                          Redux.state.ReceivedObject?.ProfileRetrieve?.eLastName
+                        )}</AvatarFallback>
+                      </Avatar>
+                      <div className='hidden sm:block' >
+                        <p className="text-sm font-medium leading-none">{`${Redux.state.ReceivedObject?.ProfileRetrieve?.eFirstName} ${Redux.state.ReceivedObject?.ProfileRetrieve?.eLastName}`}</p>
+                        <p className="text-sm text-muted-foreground">{Redux.state.ReceivedObject?.ProfileRetrieve?.cRole?.aTitle}</p>
+                      </div>
                     </div>
-                  </div>
+                    <Notification Redux={Redux} />
+                  </React.Fragment>
                 ) : (
                   <React.Fragment>
                     <Button variant="customNull" asChild className="hidden md:flex">

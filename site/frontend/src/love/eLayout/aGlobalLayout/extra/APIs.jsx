@@ -13,10 +13,13 @@ const APIs = {
       const serverResponse = response.data;
 
       if (serverResponse.success === true) {
-        return Redux.dispatch({ type: Redux.action.ReceivedObject, payload: {
-          ...Redux.state.ReceivedObject,
-          ProfileRetrieve: serverResponse.profile_retrieve
-        }})
+        // return Redux.dispatch({ type: Redux.action.ReceivedObject, payload: {
+        //   ...Redux.state.ReceivedObject,
+        //   ProfileRetrieve: serverResponse.profile_retrieve
+        // }})
+
+        const ProfileRetrieve =  serverResponse.profile_retrieve
+        return APIs.NotificationListAPI(Redux, ProfileRetrieve)
       }
     })
     .catch(error => {
@@ -25,6 +28,30 @@ const APIs = {
     })
     .finally(() => loading(Redux, false) );
   },
+
+  // Notification List API
+  NotificationListAPI: (Redux, ProfileRetrieve) => {
+    loading(Redux, true)
+
+    API.GlobalAPI.ProtectedAPI.AuthorisedAPI.TopbarAPI.NotificationListAPI()
+    .then(response => {
+      // console.log(response.data);
+      const serverResponse = response.data;
+
+      if (serverResponse.success === true) {
+        return Redux.dispatch({ type: Redux.action.ReceivedObject, payload: {
+          ...Redux.state.ReceivedObject,
+          ProfileRetrieve,
+          NotificationList: serverResponse.list
+        }})
+      }
+    })
+    .catch(error => {
+        // console.log(error.response.data);
+        const serverResponse = error.response.data
+    })
+    .finally(() => loading(Redux, false) );
+  },  
 
   // Logout API
   LogoutAPI: (navigate, Redux) => {
