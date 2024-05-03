@@ -4,6 +4,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { GitHubLogoIcon } from "@radix-ui/react-icons"
 import { Link } from "react-router-dom";
 import FinalRouteName from "@/love/gRoute/FinalRouteName";
+import parse from 'html-react-parser';
 
 
 function ProjectSectionComponent({ Redux }) {
@@ -55,9 +56,9 @@ function ProjectSectionComponent({ Redux }) {
                       <div className="h-full bg-[#FCF6F5] dark:bg-[#990011] text-[#990011] dark:text-[#FCF6F5] rounded-lg overflow-hidden">
                         <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={each1?.image?.url} alt="blog" />
                         <div className="p-6">
-                          <h1 className="title-font text-lg font-medium  mb-1">{each1.title}</h1>
-                          <h2 className="tracking-widest text-xs title-font font-medium mb-3 uppercase">{each1.subtitle}</h2>
-                          <p className="leading-relaxed mb-3">{each1.description}</p>
+                          <h2 className="tracking-widest text-xs title-font font-medium mb-1 uppercase">{each1.subtitle}</h2>
+                          <h1 className="title-font text-lg font-medium mb-3">{each1.title}</h1>
+                          <p className="leading-relaxed mb-3">{parse(each1.description || "")}</p>
                           <div className="flex items-center flex-wrap ">
                             <Link to={`${FinalRouteName.GlobalRoute.ProjectRoute}/${each1.id}`} className="inline-flex items-center md:mb-2 lg:mb-0" >
                               {"Read More"}

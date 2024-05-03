@@ -13,7 +13,7 @@ const ProjectPgeComponent = ({ Redux, ReduxUltimate }) => {
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-2 font-medium">{Redux.state.ReceivedObject?.Retrieve?.aTitle}</h1>
           <p className="mb-4 leading-relaxed">{Redux.state.ReceivedObject?.Retrieve?.aSubtitle}</p>
-          <p className="mb-8 leading-relaxed">{Redux.state.ReceivedObject?.Retrieve?.aDescription}</p>
+          <p className="mb-8 leading-relaxed">{parse(Redux.state.ReceivedObject?.Retrieve?.aDescription || "")}</p>
           <div className="flex flex-col items-center justify-center space-y-4 xl:flex-row sm:space-x-4 xl:space-y-0">
             {Redux.state.ReceivedObject?.Retrieve?.dWebLinks?.map((each, index) => (
               <Button asChild variant="custom" key={index} >
