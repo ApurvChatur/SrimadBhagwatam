@@ -8,7 +8,7 @@ import parse from 'html-react-parser';
 
 
 function ProjectSectionComponent({ Redux }) {
-  const [activeProjectGroup, setActiveProjectGroup] = useState("Acrux Enterprise")
+  const [activeProjectGroup, setActiveProjectGroup] = useState("SB 1.1")
 
   return (
     Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve &&  
@@ -17,14 +17,14 @@ function ProjectSectionComponent({ Redux }) {
       <section>
         <div className="container px-5 py-24 mx-auto flex flex-wrap flex-col">
           <div className="flex flex-col text-center w-full mb-20">
-            <h2 className="text-xs tracking-widest font-medium title-font mb-1">OUR PROJECTS</h2>
+            <h2 className="text-xs tracking-widest font-medium title-font mb-1">OUR BLOG ARTICLES</h2>
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2">{Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.title}</h1>
             <p className="lg:w-2/3 mx-auto leading-relaxed text-base">{Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.description}</p>
-          </div>          
+          </div> 
 
           <div className="flex mx-auto mb-10 justify-center">
             <ScrollArea className="w-80 lg:w-2/3 whitespace-nowrap rounded-md">
-              {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
+                    {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
                 <a 
                   key={index}
                   className={`hover:cursor-pointer uppercase sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider
@@ -33,7 +33,7 @@ function ProjectSectionComponent({ Redux }) {
                     "border-[#990011] dark:border-[#FCF6F5]"}
                   `}
                   onClick={() => setActiveProjectGroup(each?.title)}
-                >
+              >
                   <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5 mr-3" viewBox="0 0 24 24">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                   </svg>{each.title}
@@ -43,6 +43,52 @@ function ProjectSectionComponent({ Redux }) {
             </ScrollArea>
           </div>
           
+          {/* <div className="flex mx-auto mb-2 justify-center items-center gap-3">
+            <div className="leading-relaxed text-base">Select Canto : </div>
+            <div>
+              <Select
+                onValueChange={value => setActiveProjectGroup(value)}
+                value={activeProjectGroup}
+                >
+                <SelectTrigger className="border-[#990011] dark:border-[#FCF6F5]">
+                  <SelectValue placeholder={"each1.placeholder"} />
+                </SelectTrigger>
+                <SelectContent className="bg-[#990011] dark:bg-[#FCF6F5] text-[#FCF6F5] dark:text-[#990011]">
+                  <SelectGroup>
+                    <SelectLabel>--Select--</SelectLabel>
+                    {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
+                      <SelectItem key={index} value={each.title} >{each.title}</SelectItem>
+                      ))
+                    }
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          
+          <div className="flex mx-auto mb-10 justify-center items-center gap-3">
+            <div className="leading-relaxed text-base">Select Chapter : </div>
+            <div>
+              <Select
+                onValueChange={value => setActiveProjectGroup(value)}
+                value={activeProjectGroup}
+              >
+                <SelectTrigger className="border-[#990011] dark:border-[#FCF6F5]">
+                  <SelectValue placeholder={"each1.placeholder"} />
+                </SelectTrigger>
+                <SelectContent className="bg-[#990011] dark:bg-[#FCF6F5] text-[#FCF6F5] dark:text-[#990011]">
+                  <SelectGroup>
+                    <SelectLabel>--Select--</SelectLabel>
+                    {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
+                      <SelectItem key={index} value={each.title} >{each.title}</SelectItem>
+                      ))
+                    }
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+          </div> */}
+
           {Redux.state.ReceivedObject?.Retrieve?.ProjectSectionRetrieve?.projectGroups?.map((each, index) => (
             <React.Fragment key={index}>
               <div className={`flex flex-wrap text-center bg-[#990011] dark:bg-[#FCF6F5] text-[#FCF6F5] dark:text-[#990011] bg-opacity-60 px-4 py-6 rounded-lg ${activeProjectGroup === each.title ? "" : "hidden"}`}>
