@@ -9,7 +9,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar"
 import { Button } from '@/components/ui/button';
-import { LogIn, Signpost } from 'lucide-react';
+import { LogIn, Signpost, MessagesSquare  } from 'lucide-react';
 import { ModeToggle } from '@/components/mode-toggle';
 import DesktopNav from './components/aDesktopNav';
 import Setting from './components/cSetting';
@@ -39,6 +39,12 @@ function HeaderComponent({ Redux, LogoutAPICall }) {
               {/* <CommandMenu /> */}
             </div>
             <nav className="flex items-center space-x-2">
+              <Button variant="customNull" asChild className="md:flex">
+                <Link to="/chat" >
+                  <MessagesSquare  className="mr-2 h-4 w-4" /> Chat
+                </Link>
+              </Button>
+              
               {Redux.state.RequiredObject?.Loading ? null :
                 Redux.state.ReceivedObject?.ProfileRetrieve ? (
                   <React.Fragment>

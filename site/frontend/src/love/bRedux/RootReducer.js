@@ -25,6 +25,8 @@ import ProfileUpdatePageState from '../fPage/fTopbarPage/bProfileUpdatePage/extr
 import ProfilePasswordUpdatePageState from '../fPage/fTopbarPage/cProfilePasswordUpdatePage/extra/State';
 import ProfileDeletePageState from '../fPage/fTopbarPage/dProfileDeletePage/extra/State';
 
+import ChatPageState from '../fPage/gSidebarPage/aChatPage/extra/State';
+
 
 const RootReducer = combineReducers({
 	// Layout
@@ -51,6 +53,8 @@ const RootReducer = combineReducers({
 	ProfileUpdatePageState,
 	ProfilePasswordUpdatePageState,
 	ProfileDeletePageState,
+
+	ChatPageState,
 
 })  
 

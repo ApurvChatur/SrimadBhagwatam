@@ -36,6 +36,9 @@ const ProfileUpdatePage = React.lazy(() => import('@/love/fPage/fTopbarPage/bPro
 const ProfilePasswordUpdatePage = React.lazy(() => import('@/love/fPage/fTopbarPage/cProfilePasswordUpdatePage'));
 const ProfileDeletePage = React.lazy(() => import('@/love/fPage/fTopbarPage/dProfileDeletePage'));
 
+// Sidebar Page
+const ChatPage = React.lazy(() => import('@/love/fPage/gSidebarPage/aChatPage'));
+
 
 function App() {
   // Redux
@@ -85,6 +88,7 @@ function App() {
                 </Route>
 
                 <Route element={<SidebarLayout ReduxUltimate={Redux} />} >
+                  <Route path='chat' element={<ChatPage ReduxUltimate={Redux} />} />
                 </Route>
               </Route>
             </Route>

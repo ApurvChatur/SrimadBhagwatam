@@ -179,8 +179,159 @@ const API = {
 					}
 				},
 				SidbarAPI: {
-			
-				},			
+					ChatAPI: {
+						GroupChatCreateAPI: (props) => {
+							return (
+								APIBase({
+									method: "POST",
+									url: `/api/v1/chat-page/create-group-chat`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						UserListAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/user/list`,
+								})
+							)
+						}, 
+
+						UserChatListAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/user-chat-list`,
+								})
+							)
+						}, 
+
+						UserGroupChatListAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/user-group-chat-list`,
+								})
+							)
+						}, 
+
+						UserGroupChatAddMemberAPI: (props) => {
+							return (
+								APIBase({
+									method: "PUT",
+									url: `/api/v1/chat-page/user-group-chat-add-members`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						UserGroupChatRemoveMemberAPI: (props) => {
+							return (
+								APIBase({
+									method: "PUT",
+									url: `/api/v1/chat-page/user-group-chat-remove-member`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						UserGroupChatLeaveAPI: (props) => {
+							return (
+								APIBase({
+									method: "DELETE",
+									url: `/api/v1/chat-page/user-group-chat-leave/${props.id}`,
+								})
+							)
+						}, 
+
+						UserChatRetrieveAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/retrieve/${props.id}${props.populate ? "?populate=true" : ''}`,
+								})
+							)
+						}, 
+
+						UserGroupChatRenameAPI: (props) => {
+							return (
+								APIBase({
+									method: "PUT",
+									url: `/api/v1/chat-page/rename/${props.id}`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						UserGroupChatDeleteAPI: (props) => {
+							return (
+								APIBase({
+									method: "DELETE",
+									url: `/api/v1/chat-page/delete/${props.id}`,
+								})
+							)
+						}, 
+
+						GetMessageAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/retrieve-messages/${props.id}`,
+								})
+							)
+						}, 
+
+						SearchUserAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/search-users`,
+								})
+							)
+						}, 
+
+						SendFriendRequestAPI: (props) => {
+							return (
+								APIBase({
+									method: "PUT",
+									url: `/api/v1/chat-page/send-request`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						GetFriendRequestAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/get-friend-request`,
+								})
+							)
+						}, 
+
+						AcceptFriendRequestAPI: (props) => {
+							return (
+								APIBase({
+									method: "PUT",
+									url: `/api/v1/chat-page/accept-request`,
+									data: props.data,
+								})
+							)
+						}, 
+
+						GetFriendListAPI: (props) => {
+							return (
+								APIBase({
+									method: "GET",
+									url: `/api/v1/chat-page/get-friends${props?.chatId ? `?chatId=${props.chatId}` : ''}`,
+								})
+							)
+						}, 
+
+					},
+				},						
 			},		
 		},	
 	},

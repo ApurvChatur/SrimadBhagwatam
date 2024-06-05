@@ -44,6 +44,12 @@ const ProjectPgeComponent = ({ Redux, ReduxUltimate }) => {
         </div>
       </div>
 
+      {Redux.state.ReceivedObject?.Retrieve?.dGalleryImages?.length > 0 &&
+        <div className="container mx-auto flex px-5 pt-5 pb-5 flex-col items-center">
+          <ImageSliderComponent Redux={Redux} />
+        </div>
+      }
+
       {Redux.state.ReceivedObject?.Retrieve?.aDetail && 
         <div className="container mx-auto flex px-5 pt-5 pb-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-full flex flex-col md:items-start text-left mb-16 md:mb-0 items-center">
