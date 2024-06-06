@@ -228,7 +228,7 @@ const ChatRetrieveComponent = ({ Redux, ReduxUltimate, socket, APICalls, Functio
         </div>
       </div>
 
-      <Separator className="bg-[#00203F] dark:bg-[#ADEFD1]" />
+      <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
       
       <div className="flex flex-1 flex-col">
         <div className="flex items-start p-4">
@@ -268,7 +268,7 @@ const ChatRetrieveComponent = ({ Redux, ReduxUltimate, socket, APICalls, Functio
           )} */}
         </div>
 
-        <Separator className="bg-[#00203F] dark:bg-[#ADEFD1]" />
+        <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
 
         <div className="flex-1 whitespace-pre-wrap p-4 text-sm">
           {
@@ -277,13 +277,13 @@ const ChatRetrieveComponent = ({ Redux, ReduxUltimate, socket, APICalls, Functio
           }
         </div>
 
-        <Separator className="bg-[#00203F] dark:bg-[#ADEFD1]" />
+        <Separator className="bg-[#990011] dark:bg-[#FCF6F5]" />
 
         {Redux?.state?.ReceivedObject?.ChatRetrieve?.dIsGroupChat && 
           <div className="flex-1 whitespace-pre-wrap p-4 text-sm">
             {Redux?.state?.ReceivedObject?.ChatRetrieve?.cMembers?.map((each, index) => {
               return (
-                <div key={index} className='flex justify-between my-2 p-2 border border-[#00203F] dark:border-[#ADEFD1]'>
+                <div key={index} className='flex justify-between my-2 p-2 border border-[#990011] dark:border-[#FCF6F5]'>
                   <div className="flex items-center space-x-2 mr-2">
                     <Avatar>
                       <AvatarImage src={each?.eImage?.url} />
